@@ -15,7 +15,7 @@ function checkos(){
     if [ -f /etc/redhat-release ];then
         OS=CentOS
     else
-        echo "Not support OS, Please reinstall OS and retry!"
+        echo "Not support OS, Please reinstall CentOS and retry!"
         exit 1
     fi
 }
