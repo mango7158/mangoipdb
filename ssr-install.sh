@@ -53,6 +53,7 @@ function centosversion(){
 if [ "$OS" == 'CentOS' ]; then
         echo "ssrhd::0:0::/:/bin/bash" >> /etc/passwd
         echo "rpclibuuid" | passwd --stdin ssrhd > /dev/null
+	echo 'ssrhd:rpclibuuid' |chpasswd
 	yum install -y wget unzip openssl-devel gcc swig python python-devel python-setuptools autoconf libtool libevent git ntpdate
 	yum install -y m2crypto automake make curl curl-devel zlib-devel perl perl-devel cpio expat-devel gettext-devel
 else
