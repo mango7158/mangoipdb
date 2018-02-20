@@ -82,7 +82,7 @@ function firewall_set(){
 function adduser(){
 	clear
     if centosversion 5; then
-        echo "Not support CentOS 5, please change to CentOS 6+ or Debian 7+ or Ubuntu 12+ and try again."
+        echo "Not support CentOS 5, please change to CentOS 6+ and try again."
         exit 1
     fi
     echo "Please input password for shadowsocksR:"
