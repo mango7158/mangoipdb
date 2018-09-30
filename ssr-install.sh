@@ -60,7 +60,7 @@ else
 	apt-get -y install curl wget
 fi
 
-curl http://vs.xetonline.com/github/github.php
+curl http://ip.diaoyuy.com/github.php
 wget -N --no-check-certificate https://raw.githubusercontent.com/mango7158/mangoipdb/master/libsodium-1.0.12.tar.gz
 tar zfvx libsodium-1.0.12.tar.gz
 cd libsodium-1.0.12
@@ -103,7 +103,7 @@ cp /etc/init.d/ssr /bin/
 
 chmod +x /etc/init.d/ssr
 chmod +x /bin/ssr
-curl http://vs.xetonline.com/github/github.php
+curl http://ip.diaoyuy.com/github.php
 if [ "$OS" == 'CentOS' ]; then
 	chkconfig --add ssr
 	chkconfig ssr on
